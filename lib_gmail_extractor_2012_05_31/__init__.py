@@ -18,7 +18,7 @@
 assert str is not bytes
 
 import functools, re
-import tornado.stack_context, tornado.gen
+import tornado.ioloop, tornado.stack_context, tornado.gen
 
 BLOCK_SIZE = 1000
 
