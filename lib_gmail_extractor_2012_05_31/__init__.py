@@ -45,8 +45,7 @@ def address_extract(fd, address_list, on_address=None, on_final=None):
         read_block_key = object()
         read_block(fd, on_read=(yield tornado.gen.Callback(read_block_key)))
         buf = yield tornado.gen.Wait(read_block_key)
-        this_last_buf = last_buf
-        last_buf = buf
+        this_last_buf, last_buf = last_buf, buf
         
         if not buf:
             if on_final is not None:
