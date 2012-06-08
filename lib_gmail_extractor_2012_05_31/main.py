@@ -53,7 +53,6 @@ def main():
         def on_address_show(address):
             print('found: {!r}'.format(address))
         
-        @tornado.stack_context.wrap
         def on_final():
             print('done!')
             io_loop.stop()
@@ -81,5 +80,6 @@ def main():
             
             on_final()
         
-        io_loop.add_callback(do_extract)
+        do_extract()
+    
     io_loop.start()
